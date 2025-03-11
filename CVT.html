@@ -17,28 +17,65 @@
 <body>
 
     <header>
-        <h1>1/10 Scale F1 RC Project 🏎️ </h1>
+        <h1> Baja CVT Project </h1>
     </header>
 
     <section class="project-container">
         <div class="project-content">
             <div class="project-image">
-                <img src="images/f1-main.png" alt="F1 RC Car Render">
+                <img src="cvt.png" alt="CVT1">
             </div>
             <div class="project-info">
                 <h2>Project Overview</h2>
                 <p>
-                    This is my ongoing project to design and build a 1/10 scale Formula 1 RC car. The chassis is 3D-printed, 
-                    and it features a servo for front-wheel turning, an electric motor for rear-wheel drive, and an Arduino Uno for control.
-                    Currently, I am printing the chassis and working on making the rear differential using a traditional pinion gear setup.
+                    This is a project I recently did at Baja SAE. In the 2024 season, the stock CVT faced a lot of issues, mainly with traction/torque (struggles in hill climb) and overheating.
+                    To address this issue, I dove into the research and analysis of exactly what parts of the CVT were causing the traction issues. 
+                    At last after weeks of reading paper after paper and creating traction curve after traction curve, the team looked at the research and determined the culprits were both the primary and secondary spring, as well as the flyweights.
+                    So, the flyweights and springs got swapped out and replaced with ones with the appropriate properties. 
                 </p>
-                <p>More details and pictures coming soon!</p>
+
             </div>
         </div>
 
         <div class="project-image">
-            <img src="images/aero.png" alt="Aerodynamics Simulation">
+            <img src="CVT2.png" alt="CVT2">
         </div>
+
+        <div class="project-info">
+            <h2> Calculations and Analysis </h2> <br>
+
+        <p> <b>Primary Clutch: </b> <br>
+            Tuning the CVT to engage at an RPM that matches the engine's torque peak would allow for efficient power transfer and vehicle responsiveness. 
+            According to the following engine torque curve for the CX9, this was observed to be 2800 RPM. 
+        </p>
+            <div class="project-image">
+                <img src="TorqueCurve.jpg" alt="CVT3">
+            </div>
+        <p>
+            Using this information, the RPM at which the clutch engages was measured with a tachometer at approximately 3000 RPM. 
+            This provided insight into the initial dynamics of power transfer between the engine and the drivetrain, and it was observed that the engagement RPM was slightly higher than the observed recommended average of 2800 RPM. 
+            This showed that there were issues with the CVT’s torque transfer and power and therefore demonstrated why hill-climbing was the 2024 vehicle’s primary weakness. 
+        </p> <br>
+
+        <div class="project-image">
+            <img src="Flyweight eq.jpg" alt="CVT4">
+        </div>
+
+        <p>
+            Lighter flyweights would delay the CVT’s shift into a higher gear, allowing for increased engagement RPMs. This would result in better acceleration and improved top-end speed, making it a preferred configuration for flat terrain and high-speed applications. 
+            Conversely, heavier flyweights would promote earlier engagement enhancing low-end torque for hill climbs and rugged terrain, addressing the late clutch engagement at 3650 RPM that was observed in the baseline data collection. 
+            <br> To determine a reasonable flyweight to use to begin testing, the equation above was used,
+            where r is the radius at which the flyweights rotate about the pivot point, measured at 0.05 m, 
+            and ⍵ is the angular velocity of the engine in rad/s, previously calculated for stored data at 376.99 rad/s. 
+            Table 1 was created using testing data to detemine a good starting weight of 18g (stock weight is 15g) to begin the tuning process.
+        </p>
+
+        <div class="project-image">
+            <img src="Table.jpg" alt="CVT5">
+        </div>
+        <p>
+            The following equation was used during testing of the new flyweight to keep track of the new engine speeds where the flyweight engages.
+        </p>
     </section>
 
     <footer>
