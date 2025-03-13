@@ -32,7 +32,20 @@
                     and it features a servo for front-wheel turning, an electric motor for rear-wheel drive, and an Arduino Uno for control.
                     Currently, I am printing the chassis and working on making the rear differential using a traditional pinion gear setup.
                 </p>
-                <p>More details and pictures coming soon!</p>
+                <div class="project-image">
+                    <img src="images/aero2.jpeg" alt="Aerodynamics Simulation2">
+                </div>
+                <p>
+                    Next Steps:
+                    <b>Steering System:</b> Once the reciever and transmitter are properly integrated, the next step is to impliment the steering system.
+                    For this, a Power HD R12 digital servo is being used. 
+                    Essentially, the Arduino will read signals from a wireless controller via the RF module I am integrating now, then it will adjust the servo motor to turn the front wheels based on user input. <br>
+                   <b>Buck Converter: </b> A voltage step down board will need to be made, as a 3S LiPo battery is being used (11.1V) and the Arduino as well as servo both require 5V. The approach for this will simply be designing the board in Altium, sending it for print, then soldering it. <br>
+                    <b>Battery Voltage Monitoring System: </b> LiPo batteries can permanently degrade if discharged below 3.0V per cell (so the 3S should not drop below 9.0V).
+                    The Arduino Uno WiFi can monitor the battery voltage using an analog sensor. I will be using a voltage divider circuit. Essentially, this circuit will step down the voltage similar to the buck converter, 
+                    but this board will just scale dowm the voltage to a safer value for the Arduino to read. If the battery is too low (below 9V), the Arduino will read this and it turns OFF the MOSFET, cutting power to the motor to prevent it from running.
+                </p>
+                <p>More details on progress and pictures coming soon!</p>
             </div>
         </div>
 
